@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # Define some parameters
     num_epochs = 500
     context = 32
-    num_patches = 10
+    num_patches = config["ratio_patches"]
 
     # Load device
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
