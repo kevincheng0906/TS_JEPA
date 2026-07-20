@@ -71,14 +71,26 @@ if __name__ == "__main__":
     decoder = LinearDecoder(emb_dim=config["pretrain_encoder_embed_dim"], patch_size=32)
 
     path_name = (
-        "/Auto_regressive_lr_"
+        "/lr_"
         + str(config["lr_pretrain"])
+        + "_ema_momentum_"
+        + str(config["ema_pretrain"])
+        + "_mask_ratio_"
+        + str(config["mask_ratio"])
+        + "_ratio_patches_"
+        + str(config["ratio_patches"])
         + "_encoder_"
         + str(config["pretrain_encoder_embed_dim"])
         + "_"
         + str(config["pretrain_encoder_nhead"])
         + "_"
         + str(config["pretrain_encoder_num_layers"])
+        + "_predictor_"
+        + str(config["pretrain_decoder_embed_dim"])
+        + "_"
+        + str(config["pretrain_decoder_nhead"])
+        + "_"
+        + str(config["pretrain_decoder_num_layers"])
         + "_epoch_"
         + str(config["checkpoint_to_use"])
     )
