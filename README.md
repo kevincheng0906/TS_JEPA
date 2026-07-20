@@ -56,3 +56,7 @@ Additional details about the architecture and other elements are provided in the
 If you find our proposed analysis useful for your research, please consider citing our paper.
 
 For any additional questions/suggestions you might have about the code and/or the proposed analysis, please contact: ennadir@kth.se.
+
+## Classification and Regression Evaluation
+
+Supervised downstream classification/regression evaluation is supported through `main/utils_eval.py`. The evaluation helpers use `src.models.transformer_based.Transformer_based`, `src.models.cnn.CNN_classifier`, and `src.data_loaders.data_loader_classification.get_eval_loaders` to build Transformer or CNN heads on labelled `.ts` or CSV datasets.
