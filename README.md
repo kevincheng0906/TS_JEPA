@@ -15,7 +15,7 @@ We recommend to install PyTorch independently, according to the specifics of you
 These packages are necessary to run the code:
 - numpy
 - pandas
-- pytorch
+- torch
 
 
 ## Setup
