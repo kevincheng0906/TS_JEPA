@@ -175,5 +175,5 @@ if __name__ == "__main__":
         l_val_mse.append(val_mse)
         l_val_mae.append(val_mae)
 
-    print("MSE Loss is: {}".format(np.mean(val_mse)))
+    print("MSE Loss is: {}".format(np.mean(l_val_mse)))
     print("MAE Loss is: {}".format(np.mean(l_val_mae)))
