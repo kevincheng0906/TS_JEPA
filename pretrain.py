@@ -142,7 +142,6 @@ if __name__ == "__main__":
 
     # Training loop
     for epoch in range(config["num_epochs"]):
-        scheduler.step()
         m = next(ema_scheduler)
         encoder.train()
         predictor.train()
@@ -184,6 +183,8 @@ if __name__ == "__main__":
             total_loss += loss
 
         total_loss = total_loss / num_batches
+
+        scheduler.step()
 
         if epoch % 10 == 0:
             print(
