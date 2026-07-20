@@ -8,6 +8,7 @@ warnings.filterwarnings("ignore")
 
 import time
 import copy
+from pathlib import Path
 import torch
 import torch.nn.functional as F
 import torch.optim.lr_scheduler as lr_scheduler
@@ -33,12 +34,15 @@ def loss_pred(pred, target_ema):
 
 def save_model(model, epoch):
     save_dict = {"encoder": model.state_dict(), "epoch": epoch}
+    checkpoint_path = Path(f"{path_save}_epoch_{epoch}.pt")
 
     try:
-        path_name = path_save + "_epoch_" + str(epoch) + ".pt"
-        torch.save(save_dict, path_name)
-    except:
-        print("Problem saving checkpoint")
+        checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+        torch.save(save_dict, checkpoint_path)
+    except (OSError, RuntimeError) as exc:
+        raise RuntimeError(
+            f"Problem saving checkpoint to {checkpoint_path}: {exc}"
+        ) from exc
 
 
 # Define the custom learning rate schedule
